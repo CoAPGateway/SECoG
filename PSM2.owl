@@ -1,0 +1,842 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY psm "http://icl.yonsei.ac.kr/ontologies/psm#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://icl.yonsei.ac.kr/ontologies/psm#"
+     xml:base="http://icl.yonsei.ac.kr/ontologies/psm"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:psm="http://icl.yonsei.ac.kr/ontologies/psm#">
+    <owl:Ontology rdf:about="http://icl.yonsei.ac.kr/ontologies/psm"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#actsOn -->
+
+    <owl:ObjectProperty rdf:about="&psm;actsOn">
+        <rdfs:range rdf:resource="&psm;Entity"/>
+        <rdfs:domain rdf:resource="&psm;Resource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#exposes -->
+
+    <owl:ObjectProperty rdf:about="&psm;exposes">
+        <rdfs:range rdf:resource="&psm;Resource"/>
+        <rdfs:domain rdf:resource="&psm;Service"/>
+        <owl:inverseOf rdf:resource="&psm;isExposedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasAvailableTime -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasAvailableTime">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasDTF"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasDOwner -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasDOwner">
+        <rdfs:domain rdf:resource="&psm;Device"/>
+        <rdfs:range rdf:resource="&psm;User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasDProperty -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasDProperty">
+        <rdfs:domain rdf:resource="&psm;Device"/>
+        <rdfs:range rdf:resource="&psm;Mobility"/>
+        <rdfs:range rdf:resource="&psm;Name"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasDSF -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasDSF">
+        <rdfs:comment>hasDeviceSpatialFeature</rdfs:comment>
+        <rdfs:range rdf:resource="&psm;DeploymentLocation"/>
+        <rdfs:domain rdf:resource="&psm;Device"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasDTF -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasDTF">
+        <rdfs:comment>hasDeviceTemporalFeature</rdfs:comment>
+        <rdfs:range rdf:resource="&psm;AvailableTime"/>
+        <rdfs:domain rdf:resource="&psm;Device"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasDType -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasDType">
+        <rdfs:domain rdf:resource="&psm;Device"/>
+        <rdfs:range rdf:resource="&psm;DeviceType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasDeploymentLocation -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasDeploymentLocation">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasDSF"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasEffect -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasEffect">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasSProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasEndDate -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasEndDate">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasRangeOfDate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasEndTime -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasEndTime">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasRangeOfTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasGlobalLocation -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasGlobalLocation">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasDeploymentLocation"/>
+        <rdfs:subPropertyOf rdf:resource="&psm;hasGlobalRange"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasGlobalRange -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasGlobalRange">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasWorkingRange"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasInformationAbout -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasInformationAbout">
+        <rdfs:range rdf:resource="&psm;Entity"/>
+        <rdfs:domain rdf:resource="&psm;Resource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasInput -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasInput">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasSProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasInterface -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasInterface">
+        <rdfs:range rdf:resource="&psm;Interface"/>
+        <rdfs:domain rdf:resource="&psm;Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasLatitude -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasLatitude">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasGlobalLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasLocalLocation -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasLocalLocation">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasDeploymentLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasLocalRange -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasLocalRange">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasWorkingRange"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasLongitude -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasLongitude">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasGlobalLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasMobility -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasMobility">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasDProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasName -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasName">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasDProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&psm;hasSProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasOutput -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasOutput">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasSProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasPrecondition -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasPrecondition">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasSProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasRSF -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasRSF">
+        <rdfs:comment>hasResourceSpatialFeature</rdfs:comment>
+        <rdfs:domain rdf:resource="&psm;Resource"/>
+        <rdfs:range rdf:resource="&psm;WorkingRange"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasRCoverage -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasRCoverage">
+        <rdfs:comment>hasResourceCoverage</rdfs:comment>
+        <rdfs:domain rdf:resource="&psm;Resource"/>
+        <rdfs:range rdf:resource="&psm;Coverage"/>
+    </owl:ObjectProperty>
+    
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasSensingPeriod -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasSensingPeriod">
+        <rdfs:domain rdf:resource="&psm;Resource"/>
+        <rdfs:range rdf:resource="&psm;SensingPeriod"/>
+    </owl:ObjectProperty>
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasRType -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasRType">
+        <rdfs:domain rdf:resource="&psm;Resource"/>
+        <rdfs:range rdf:resource="&psm;ResourceType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasRadius -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasRadius">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasGlobalRange"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasRangeOfDate -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasRangeOfDate">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasAvailableTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasRangeOfTime -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasRangeOfTime">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasAvailableTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasSArea -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasSArea">
+        <rdfs:domain rdf:resource="&psm;Service"/>
+        <rdfs:range rdf:resource="&psm;WorkingRange"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasSProperty -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasSProperty">
+        <rdfs:range rdf:resource="&psm;Effect"/>
+        <rdfs:range rdf:resource="&psm;Input"/>
+        <rdfs:range rdf:resource="&psm;Name"/>
+        <rdfs:range rdf:resource="&psm;Output"/>
+        <rdfs:range rdf:resource="&psm;Precondition"/>
+        <rdfs:domain rdf:resource="&psm;Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasSTime -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasSTime">
+        <rdfs:range rdf:resource="&psm;AvailableTime"/>
+        <rdfs:domain rdf:resource="&psm;Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasSType -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasSType">
+        <rdfs:domain rdf:resource="&psm;Service"/>
+        <rdfs:range rdf:resource="&psm;ServiceType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasSUser -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasSUser">
+        <rdfs:domain rdf:resource="&psm;Service"/>
+        <rdfs:range rdf:resource="&psm;User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasStartDate -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasStartDate">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasRangeOfDate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasStartTime -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasStartTime">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasRangeOfTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasTimeZone -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasTimeZone">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasAvailableTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hasWorkingRange -->
+
+    <owl:ObjectProperty rdf:about="&psm;hasWorkingRange">
+        <rdfs:subPropertyOf rdf:resource="&psm;hasRSF"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#hosts -->
+
+    <owl:ObjectProperty rdf:about="&psm;hosts">
+        <rdfs:domain rdf:resource="&psm;Device"/>
+        <rdfs:range rdf:resource="&psm;Resource"/>
+        <owl:inverseOf rdf:resource="&psm;isHostedOn"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#invokes -->
+
+    <owl:ObjectProperty rdf:about="&psm;invokes">
+        <rdfs:domain rdf:resource="&psm;Device"/>
+        <rdfs:range rdf:resource="&psm;Service"/>
+        <owl:inverseOf rdf:resource="&psm;isInvokedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#isAttachedTo -->
+
+    <owl:ObjectProperty rdf:about="&psm;isAttachedTo">
+        <rdfs:domain rdf:resource="&psm;Device"/>
+        <rdfs:range rdf:resource="&psm;Entity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#isAvailableAt -->
+
+    <owl:ObjectProperty rdf:about="&psm;isAvailableAt">
+        <rdfs:range rdf:resource="&psm;AvailableTime"/>
+        <rdfs:domain rdf:resource="&psm;Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#isEffectiveAt -->
+
+    <owl:ObjectProperty rdf:about="&psm;isEffectiveAt">
+        <rdfs:domain rdf:resource="&psm;Service"/>
+        <rdfs:range rdf:resource="&psm;WorkingRange"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#isExposedBy -->
+
+    <owl:ObjectProperty rdf:about="&psm;isExposedBy">
+        <rdfs:domain rdf:resource="&psm;Resource"/>
+        <rdfs:range rdf:resource="&psm;Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#isHostedOn -->
+
+    <owl:ObjectProperty rdf:about="&psm;isHostedOn">
+        <rdfs:range rdf:resource="&psm;Device"/>
+        <rdfs:domain rdf:resource="&psm;Resource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#isIdentifiedBy -->
+
+    <owl:ObjectProperty rdf:about="&psm;isIdentifiedBy">
+        <rdfs:domain rdf:resource="&psm;Device"/>
+        <rdfs:range rdf:resource="&psm;Identifier"/>
+        <rdfs:domain rdf:resource="&psm;Resource"/>
+        <rdfs:domain rdf:resource="&psm;Service"/>
+    </owl:ObjectProperty>
+    
+     <!-- http://icl.yonsei.ac.kr/ontologies/psm#isComposedOf -->
+
+    <owl:ObjectProperty rdf:about="&psm;isComposedOf">
+        <rdfs:range rdf:resource="&psm;Identifier"/>
+    </owl:ObjectProperty>
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#isInferredFrom -->
+
+    <owl:ObjectProperty rdf:about="&psm;isInferredFrom">
+        <rdfs:range rdf:resource="&psm;ResourceType"/>
+        <rdfs:domain rdf:resource="&psm;ServiceType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#isInvokedBy -->
+
+    <owl:ObjectProperty rdf:about="&psm;isInvokedBy">
+        <rdfs:range rdf:resource="&psm;Device"/>
+        <rdfs:domain rdf:resource="&psm;Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#isProvidedBy -->
+
+    <owl:ObjectProperty rdf:about="&psm;isProvidedBy">
+        <rdfs:range rdf:resource="&psm;Device"/>
+        <rdfs:domain rdf:resource="&psm;Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#isSubscribedBy -->
+
+    <owl:ObjectProperty rdf:about="&psm;isSubscribedBy">
+        <rdfs:range rdf:resource="&psm;Device"/>
+        <rdfs:domain rdf:resource="&psm;Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#provides -->
+
+    <owl:ObjectProperty rdf:about="&psm;provides">
+        <rdfs:domain rdf:resource="&psm;Device"/>
+        <rdfs:range rdf:resource="&psm;Service"/>
+        <owl:inverseOf rdf:resource="&psm;isProvidedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#subscribes -->
+
+    <owl:ObjectProperty rdf:about="&psm;subscribes">
+        <rdfs:domain rdf:resource="&psm;Device"/>
+        <rdfs:range rdf:resource="&psm;Service"/>
+        <owl:inverseOf rdf:resource="&psm;isSubscribedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#AvailableTime -->
+
+    <owl:Class rdf:about="&psm;AvailableTime">
+        <rdfs:subClassOf rdf:resource="&psm;TemporalFeature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#DeploymentLocation -->
+
+    <owl:Class rdf:about="&psm;DeploymentLocation">
+        <rdfs:subClassOf rdf:resource="&psm;SpatialFeature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Device -->
+
+    <owl:Class rdf:about="&psm;Device"/>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#DeviceType -->
+
+    <owl:Class rdf:about="&psm;DeviceType">
+        <rdfs:subClassOf rdf:resource="&psm;Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Effect -->
+
+    <owl:Class rdf:about="&psm;Effect">
+        <rdfs:subClassOf rdf:resource="&psm;Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#EndDate -->
+
+    <owl:Class rdf:about="&psm;EndDate">
+        <rdfs:subClassOf rdf:resource="&psm;RangeOfDate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#EndTime -->
+
+    <owl:Class rdf:about="&psm;EndTime">
+        <rdfs:subClassOf rdf:resource="&psm;RangeOfTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Entity -->
+
+    <owl:Class rdf:about="&psm;Entity"/>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#GlobalLocation -->
+
+    <owl:Class rdf:about="&psm;GlobalLocation">
+        <rdfs:subClassOf rdf:resource="&psm;DeploymentLocation"/>
+        <rdfs:subClassOf rdf:resource="&psm;GlobalRange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#GlobalRange -->
+
+    <owl:Class rdf:about="&psm;GlobalRange">
+        <rdfs:subClassOf rdf:resource="&psm;WorkingRange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Identifier -->
+
+    <owl:Class rdf:about="&psm;Identifier"/>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Input -->
+
+    <owl:Class rdf:about="&psm;Input">
+        <rdfs:subClassOf rdf:resource="&psm;Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Interface -->
+
+    <owl:Class rdf:about="&psm;Interface"/>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Latitude -->
+
+    <owl:Class rdf:about="&psm;Latitude">
+        <rdfs:subClassOf rdf:resource="&psm;GlobalLocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#LocalLocation -->
+
+    <owl:Class rdf:about="&psm;LocalLocation">
+        <rdfs:subClassOf rdf:resource="&psm;DeploymentLocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#LocalRange -->
+
+    <owl:Class rdf:about="&psm;LocalRange">
+        <rdfs:subClassOf rdf:resource="&psm;WorkingRange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Longitude -->
+
+    <owl:Class rdf:about="&psm;Longitude">
+        <rdfs:subClassOf rdf:resource="&psm;GlobalLocation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Mobility -->
+
+    <owl:Class rdf:about="&psm;Mobility">
+        <rdfs:subClassOf rdf:resource="&psm;Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Name -->
+
+    <owl:Class rdf:about="&psm;Name">
+        <rdfs:subClassOf rdf:resource="&psm;Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Output -->
+
+    <owl:Class rdf:about="&psm;Output">
+        <rdfs:subClassOf rdf:resource="&psm;Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Precondition -->
+
+    <owl:Class rdf:about="&psm;Precondition">
+        <rdfs:subClassOf rdf:resource="&psm;Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Property -->
+
+    <owl:Class rdf:about="&psm;Property"/>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#REST -->
+
+    <owl:Class rdf:about="&psm;REST">
+        <rdfs:subClassOf rdf:resource="&psm;Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#RPC -->
+
+    <owl:Class rdf:about="&psm;RPC">
+        <rdfs:subClassOf rdf:resource="&psm;Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Radius -->
+
+    <owl:Class rdf:about="&psm;Radius">
+        <rdfs:subClassOf rdf:resource="&psm;GlobalRange"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#RangeOfDate -->
+
+    <owl:Class rdf:about="&psm;RangeOfDate">
+        <rdfs:subClassOf rdf:resource="&psm;AvailableTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#RangeOfTime -->
+
+    <owl:Class rdf:about="&psm;RangeOfTime">
+        <rdfs:subClassOf rdf:resource="&psm;AvailableTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Resource -->
+
+    <owl:Class rdf:about="&psm;Resource"/>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#ResourceType -->
+
+    <owl:Class rdf:about="&psm;ResourceType">
+        <rdfs:subClassOf rdf:resource="&psm;Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#SOAP -->
+
+    <owl:Class rdf:about="&psm;SOAP">
+        <rdfs:subClassOf rdf:resource="&psm;Interface"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Service -->
+
+    <owl:Class rdf:about="&psm;Service"/>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#ServiceType -->
+
+    <owl:Class rdf:about="&psm;ServiceType">
+        <rdfs:subClassOf rdf:resource="&psm;Type"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#SpatialFeature -->
+
+    <owl:Class rdf:about="&psm;SpatialFeature"/>
+    
+	<!-- http://icl.yonsei.ac.kr/ontologies/psm#Coverage -->
+
+    <owl:Class rdf:about="&psm;Coverage"/>
+    
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#SensingPeriod -->
+
+    <owl:Class rdf:about="&psm;SensingPeriod"/>
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#StartDate -->
+
+    <owl:Class rdf:about="&psm;StartDate">
+        <rdfs:subClassOf rdf:resource="&psm;RangeOfDate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#StartTime -->
+
+    <owl:Class rdf:about="&psm;StartTime">
+        <rdfs:subClassOf rdf:resource="&psm;RangeOfTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#TemporalFeature -->
+
+    <owl:Class rdf:about="&psm;TemporalFeature"/>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#TimeZone -->
+
+    <owl:Class rdf:about="&psm;TimeZone">
+        <rdfs:subClassOf rdf:resource="&psm;AvailableTime"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#Type -->
+
+    <owl:Class rdf:about="&psm;Type"/>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#User -->
+
+    <owl:Class rdf:about="&psm;User"/>
+    
+
+
+    <!-- http://icl.yonsei.ac.kr/ontologies/psm#WorkingRange -->
+
+    <owl:Class rdf:about="&psm;WorkingRange">
+        <rdfs:subClassOf rdf:resource="&psm;SpatialFeature"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
