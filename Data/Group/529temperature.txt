@@ -1,0 +1,2 @@
+coap://165.132.120.220:5683/temperature
+coap://165.132.120.222:5683/temperature

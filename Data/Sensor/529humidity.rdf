@@ -1,0 +1,14 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:psm="http://icl.yonsei.ac.kr/ontologies/psm#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <rdf:Description rdf:about="http://icl.yonsei.ac.kr/ontologies/psm#Resource/529humidity">
+    <psm:hasRCoverage>2</psm:hasRCoverage>
+    <psm:hasSensingPeriod>3</psm:hasSensingPeriod>
+    <psm:hasLocalRange>529</psm:hasLocalRange>
+    <psm:hasRType>humidity</psm:hasRType>
+    <psm:isIdentifiedBy>http://165.132.120.225/humidity</psm:isIdentifiedBy>
+  </rdf:Description>
+</rdf:RDF>

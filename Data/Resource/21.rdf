@@ -1,0 +1,12 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:psm="http://icl.yonsei.ac.kr/ontologies/psm#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <rdf:Description rdf:about="http://icl.yonsei.ac.kr/ontologies/psm#Resource/cdma_227_distance">
+    <psm:hasLocalRange>cdma</psm:hasLocalRange>
+    <psm:isIdentifiedBy>coap://165.132.120.227:5683/distance</psm:isIdentifiedBy>
+    <psm:hasRType>distance</psm:hasRType>
+  </rdf:Description>
+</rdf:RDF>

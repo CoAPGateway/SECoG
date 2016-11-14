@@ -1,0 +1,12 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:psm="http://icl.yonsei.ac.kr/ontologies/psm#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <rdf:Description rdf:about="http://icl.yonsei.ac.kr/ontologies/psm#Resource/527_224_humidity">
+    <psm:hasLocalRange>527</psm:hasLocalRange>
+    <psm:isIdentifiedBy>coap://165.132.120.224:5683/humidity</psm:isIdentifiedBy>
+    <psm:hasRType>humidity</psm:hasRType>
+  </rdf:Description>
+</rdf:RDF>

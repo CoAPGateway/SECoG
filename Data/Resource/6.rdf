@@ -1,0 +1,12 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:psm="http://icl.yonsei.ac.kr/ontologies/psm#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <rdf:Description rdf:about="http://icl.yonsei.ac.kr/ontologies/psm#Resource/529_222_dust">
+    <psm:hasLocalRange>529</psm:hasLocalRange>
+    <psm:isIdentifiedBy>coap://165.132.120.222:5683/dust</psm:isIdentifiedBy>
+    <psm:hasRType>dust</psm:hasRType>
+  </rdf:Description>
+</rdf:RDF>
