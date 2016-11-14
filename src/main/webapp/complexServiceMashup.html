@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+	<title>SECoG</title>
+	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+	<style type = "text/css">
+		#regbox {width: 600px}
+		#regbox label{ display: block; width: 220px; float: left; text-align: right}
+	</style>
+</head>
+<body>
+	<form method="post" action="complexServiceMashup.jsp">
+		<fieldset id="regbox">
+			<legend>★ Complex Service Mashup ★</legend>
+			<label for="coapFormula">(*)Formula:&nbsp;&nbsp;</label>
+			<input type="text" name="coapFormula"><br/>
+			
+			<label for="coapNumberOfParameters">(*)Number of parameters:&nbsp;&nbsp;</label>
+			<input id="coapNumberOfParameters" type="text" name="coapNumberOfParameters"><br/>
+			
+			<label for="numberOfReplies">Number of Replies:&nbsp;&nbsp;</label>
+			<input type="text" name="numberOfReplies"><br/>
+			
+			<label for="timeout">Timeout:&nbsp;&nbsp;</label>
+			<input type="text" name="timeout"><br/>
+			
+			<label for="responseFormat">Response Format:&nbsp;&nbsp;</label>
+			<input type="radio" name="responseFormat" value="plainText" checked="checked">plain text
+			<input type="radio" name="responseFormat" value="json">json<br/>
+			
+			<label for="retransmission">Re-transmission:&nbsp;&nbsp;</label>
+			<input type="radio" name="retransmission" value="yes" checked="checked">yes
+			<input type="radio" name="retransmission" value="no">no<br/>
+			
+			<label for="weightLocation">Weight for Location:&nbsp;&nbsp;</label>
+			<input type="text" name="weightLocation"> (default is 0.5)<br/>
+			
+			<label for="weightResourceType">Weight for Resource Type:&nbsp;&nbsp;</label>
+			<input type="text" name="weightResourceType"> (default is 0.5)<br/><br/>
+			
+			<div id="repeatedInputsWrapper">
+				<div class="repeatedInputs">
+					<label for="coapLocation">(*)Location:&nbsp;&nbsp;</label>
+					<input class="coapLocation" type="text" name="coapLocation"><br/>
+					
+					<label for="coapResourceType">(*)Resource Type:&nbsp;&nbsp;</label>
+					<input class="coapResourceType" type="text" name="coapResourceType"><br/>
+					
+					<label for="operation">(*)Operation:&nbsp;&nbsp;</label>
+					<input class="operation" type="radio" name="operation" value="avg" checked="checked">average
+					<input class="operation" type="radio" name="operation" value="min">minimum
+					<input class="operation" type="radio" name="operation" value="max">maximum<br/>
+				</div>	
+			</div>
+			
+			<input type="submit" value="Submit"> 
+			<input type="reset" value="Reset"><br/>
+		</fieldset>
+		<script type="text/javascript">
+			document.repeatedInputsHtml = $('div.repeatedInputs')[0];
+			(function(){
+				$('#coapNumberOfParameters').on('change', function(){
+					var numberOfRepeat = $(this).val();
+					$('div#repeatedInputsWrapper').html('');
+					for(var i = 0; i < numberOfRepeat; i++){
+						var element = $().attr('id', 'repeatedInputs_' + i);
+						$('div#repeatedInputsWrapper').append('<div class="repeatedInputs" id="repeatedInputs' + i +'">' + 
+								'<label for="coapLocation">(*)Location:&nbsp;&nbsp;</label>' +
+								'<input class="coapLocation" type="text" name="coapLocation' + i +'"><br/>' +
+								'<label for="coapResourceType">(*)Resource Type:&nbsp;&nbsp;</label>' +
+								'<input class="coapResourceType" type="text" name="coapResourceType' + i +'"><br/>' +
+								'<label for="operation">(*)Operation:&nbsp;&nbsp;</label>' +
+								'<input class="operation" type="radio" name="operation' + i +'" value="avg" checked="checked">average' +
+								'<input class="operation" type="radio" name="operation' + i +'" value="min">minimum' +
+								'<input class="operation" type="radio" name="operation' + i +'" value="max">maximum<br/><br/>' + 
+								'</div>');
+					}
+				});
+			})();
+			
+		</script>
+		
+	</form>
+</body>
+</html>
